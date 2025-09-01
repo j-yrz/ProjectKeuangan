@@ -1,0 +1,36 @@
+/* ===== Summary Cards ===== */
+.summary-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: space-around;
+    margin-top: 100px;
+}
+
+.card {
+    flex: 1 1 30%;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1.2em;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+#card-saldo {
+    background: #1976D2;
+}
+
+#card-pemasukan {
+    background: #4CAF50;
+}
+
+#card-pengeluaran {
+    background: #F44336;
+}

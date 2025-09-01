@@ -1,0 +1,50 @@
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 90%;
+    }
+
+    form input,
+    form select,
+    button {
+        font-size: 1.1em;
+        padding: 14px;
+    }
+
+    .summary-cards {
+        flex-direction: column;
+    }
+
+    table {
+        font-size: 0.9em;
+    }
+
+    th,
+    td {
+        padding: 8px;
+    }
+
+    #pagination input[type="number"] {
+        width: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 8px 10px;
+    }
+
+    .logo {
+        font-size: 1.1em;
+    }
+
+    .header-right span {
+        font-size: 1.1em;
+    }
+
+    nav {
+        width: 130px;
+        top: 40px;
+        right: 5px;
+    }
+}

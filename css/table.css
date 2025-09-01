@@ -1,0 +1,74 @@
+/* ===== Table & Pagination ===== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    display: block;
+    overflow-x: auto;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background: #2196F3;
+    color: white;
+}
+
+tr:hover td {
+    background: rgba(33,150,243,0.1);
+}
+
+/* Kolom aksi dan checkbox */
+th:nth-child(10),
+td:nth-child(10) {
+    text-align: center;
+}
+
+/* Pagination */
+#pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    gap: 3px;
+}
+
+#pagination button {
+    padding: 4px 8px;
+    font-size: 0.9em;
+    border: 1px solid #2196F3;
+    border-radius: 4px;
+    background: #fff;
+    color: #2196F3;
+}
+
+#pagination button:hover:not(:disabled) {
+    background: #2196F3;
+    color: #fff;
+}
+
+#pagination button:disabled {
+    opacity: 0.5;
+}
+
+/* Delete Selected Button */
+#deleteSelected {
+    margin-top: 15px;
+    z-index: 10;
+    position: relative;
+    padding: 8px 12px;
+    background: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+}
+
+#deleteSelected:hover {
+    background: #d32f2f;
+}
