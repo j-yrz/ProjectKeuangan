@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Keuangan Modern</title>
+    <!-- CSS Pecahan -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/summary.css">
+    <link rel="stylesheet" href="css/table.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="css/darkmode.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">KeuanganKu</div>
+        <div class="header-right">
+            <span id="darkModeToggle">🌙</span>
+            <span id="toggleSummary">👁️</span>
+            <span id="menuToggle">☰</span>
+        </div>
+        <nav id="navMenu">
+            <a href="#" id="homeLink">Beranda</a>
+            <a href="#" id="historyLink">Catatan</a>
+            <a href="#" id="backupLink">Backup/Restore</a>
+        </nav>
+    </header>
+
+    <!-- Summary Cards -->
+    <section id="home">
+        <div class="summary-cards">
+            <div class="card" id="card-saldo">Rp 0</div>
+            <div class="card" id="card-pemasukan">Rp 0</div>
+            <div class="card" id="card-pengeluaran">Rp 0</div>
+        </div>
+        <button id="showFormBtn">Tambah Transaksi</button>
+    </section>
+
+    <!-- Catatan / History -->
+    <section id="catatan" style="display:none;">
+        <div style="overflow-x:auto;">
+            <table id="transactionsTable">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" id="checkAll"></th>
+                        <th>No</th>
+                        <th>Tanggal</th>
+                        <th>Anggota</th>
+                        <th>Jenis</th>
+                        <th>Sumber Dana</th>
+                        <th>Catatan</th>
+                        <th>Deskripsi</th>
+                        <th>Jumlah</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div id="pagination"></div>
+        <button id="deleteSelected" style="display:none;">Hapus Terpilih</button>
+        <div style="margin-top:15px;">
+            <input type="text" id="searchNote" placeholder="Cari Catatan">
+            <input type="date" id="startDate">
+            <input type="date" id="endDate">
+            <select id="filterAnggota"></select>
+            <select id="filterType">
+                <option value="">Semua Jenis</option>
+                <option value="Pemasukan">Pemasukan</option>
+                <option value="Pengeluaran">Pengeluaran</option>
+            </select>
+            <button id="applyFilter">Filter</button>
+            <button id="resetFilter">Reset</button>
+        </div>
+    </section>
+
+    <!-- Modal Form Transaksi -->
+    <div class="modal" id="formModal">
+        <div class="modal-content">
+            <span class="closeBtn">&times;</span>
+            <form id="transactionForm">
+                <input type="date" id="transactionDate" required>
+                <input type="text" id="transactionAnggotaInput" placeholder="Nama Anggota" required>
+                <select id="type">
+                    <option value="Pemasukan">Pemasukan</option>
+                    <option value="Pengeluaran">Pengeluaran</option>
+                </select>
+                <input type="text" id="amount" placeholder="Jumlah" required>
+                <input type="text" id="sumberDana" placeholder="Sumber Dana">
+                <input type="text" id="note" placeholder="Catatan">
+                <input type="text" id="deskripsi" placeholder="Deskripsi">
+                <button type="submit">Simpan</button>
+                <button type="button" id="cancelBtn">Batal</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Backup/Restore -->
+    <div class="modal" id="backupModal">
+        <div class="modal-content">
+            <span class="closeBackupBtn">&times;</span>
+            <p>Backup dan Restore Data</p>
+            <button id="backupBtnModal">Backup</button>
+            <input type="file" id="restoreInputModal">
+            <button id="downloadTemplateBtn">Download Template</button>
+        </div>
+    </div>
+
+    <!-- Modal Riwayat Edit -->
+    <div class="modal" id="historyEditModal">
+        <div class="modal-content">
+            <span class="closeHistoryBtn">&times;</span>
+            <h3>Riwayat Edit</h3>
+            <div style="overflow-x:auto; max-height:400px;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Field</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody id="historyEditTable"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script JS Pecahan -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/transactions.js"></script>
+    <script src="js/filter.js"></script>
+    <script src="js/pagination.js"></script>
+    <script src="js/checkboxes.js"></script>
+</body>
+</html>
